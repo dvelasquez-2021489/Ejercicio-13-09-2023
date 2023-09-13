@@ -1,0 +1,44 @@
+  <form [formGroup]="profileForm">
+    <mat-form-field class="col-12">
+        <mat-label>Nombre</mat-label> 
+        <input type="text" maxlength="8" formControlName="nombre" matInput required>
+        <mat-error *ngIf="profileForm.get('nombre')?.errors">
+            {{profileForm.get('nombre')?.errors?.['noSpecialCharacters']?'No se aceptan carecteres especiales':'El campo es requerido'}}</mat-error>
+    </mat-form-field> 
+    <mat-form-field class="col-12">
+        <mat-label>Fecha de nacimiento</mat-label> 
+        <input type="date" [max]="today" formControlName="fechaNacimiento" matInput required>
+        <mat-error>La fecha de nacimiento es requerida</mat-error>
+    </mat-form-field>  
+    <mat-form-field class="col-12">
+        <mat-label>NIT</mat-label> 
+        <input type="text" formControlName="nit" matInput required>
+        <mat-error *ngIf="profileForm.get('nit')?.errors">
+            {{profileForm.get('nit')?.errors?.['nitInvalido']?'NIT invalido':'El campo es requerido'}}</mat-error>
+    </mat-form-field> 
+    <mat-form-field class="col-12">
+        <mat-label>Comentario</mat-label> 
+        <textarea type="text" formControlName="comentario" matInput required></textarea>
+        <mat-error>El comentario es requerido</mat-error>
+    </mat-form-field>   
+    <div class="form-group">
+        <br><p>Nuevo ingreso</p>
+        <mat-slide-toggle formControlName="nuevoIngreso" (change)="nuevo()" ngDefaultControl name="First"></mat-slide-toggle>
+    </div>
+    <mat-form-field class="col-12">
+        <mat-label>Telefono de emergencia</mat-label> 
+        <input type="text" formControlName="telefonoEmergencia" matInput>
+        <mat-error>El número de telefono es requerido</mat-error>
+    </mat-form-field>
+    <mat-form-field class="col-12">
+        <mat-label>direccion</mat-label> 
+        <input type="text" formControlName="direccion" matInput>
+        <mat-error>La dirección es requerida</mat-error>
+    </mat-form-field>
+
+    <br><button type="submit" class="btn btn-primary" [disabled]="profileForm.invalid">Guardar</button>&nbsp;
+    <button type="button" class="btn btn-secondary" (click)="limpiar()">Limpiar</button>
+</form><br>
+
+  
+  

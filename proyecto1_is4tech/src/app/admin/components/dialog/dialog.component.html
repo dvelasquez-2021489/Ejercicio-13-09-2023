@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>Dialog</h2>
+<mat-dialog-content class="mat-typography">  
+    <form class="example-form">
+        <h1>{{titulo}}</h1><p>{{nombre}}</p>
+        <mat-form-field class="example-full-width">
+            <mat-label>Name</mat-label>
+            <input type="email" matInput [formControl]="emailFormControl"
+                   placeholder="Write here">
+            <mat-hint>Errors appear instantly!</mat-hint>
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close (click)='cancel'>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial [disabled]="emailFormControl.invalid" >Confirm</button>
+</mat-dialog-actions>

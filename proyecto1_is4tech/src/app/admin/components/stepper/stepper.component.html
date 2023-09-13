@@ -1,0 +1,52 @@
+<mat-horizontal-stepper [linear]="true" #stepper>
+    <!-- Paso 1 -->
+    <mat-step>
+      <ng-template matStepLabel>Step 1</ng-template>
+      <form [formGroup]="step1Form">
+        <mat-form-field>
+          <input matInput placeholder="Fecha de Nacimiento" formControlName="fechaNacimiento" type="date">
+        </mat-form-field>
+        <div *ngIf="step1Form.get('fechaNacimiento')?.hasError('required') && step1Form.get('fechaNacimiento')?.touched">
+          Este campo es requerido.
+        </div>
+        <div *ngIf="step1Form.get('fechaNacimiento')?.hasError('fechaInvalida') && step1Form.get('fechaNacimiento')?.touched">
+          La fecha debe ser menor que la fecha actual.
+        </div>
+      </form>
+      <div>
+        <button mat-button matStepperNext [disabled]="step1Form.invalid">Siguiente</button>
+      </div>
+    </mat-step>
+  
+    <!-- Paso 2 -->
+    <mat-step>
+      <ng-template matStepLabel>Step 2</ng-template>
+      <form [formGroup]="step2Form">
+        <mat-form-field>
+          <input matInput placeholder="Nombre" formControlName="nombre" (keydown)="validarLetras($event)">
+        </mat-form-field>
+        <div *ngIf="step2Form.get('nombre')?.hasError('required') && step2Form.get('nombre')?.touched">
+          Este campo es requerido.
+        </div>
+      </form>
+      <div>
+        <button mat-button matStepperPrevious>Volver</button>
+        <button mat-button matStepperNext [disabled]="step2Form.invalid">Siguiente</button>
+      </div>
+    </mat-step>
+  
+    <!-- Paso 3 -->
+    <mat-step>
+      <ng-template matStepLabel>Step 3</ng-template>
+      <mat-slide-toggle [(ngModel)]="mostrarDPI" ngDefaultControl>Mostrar DPI</mat-slide-toggle>
+      <div *ngIf="mostrarDPI">
+        <mat-form-field>
+          <input matInput placeholder="DPI">
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-button matStepperPrevious>Volver</button>
+        <button mat-button [disabled]="!mostrarDPI">Siguiente</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
