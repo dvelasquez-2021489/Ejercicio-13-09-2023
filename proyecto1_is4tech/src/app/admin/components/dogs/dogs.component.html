@@ -84,10 +84,8 @@
 </form>
 
 <app-fecha></app-fecha>
-<br>
-<h1>Dialog</h1>
 
-
+<br><h1>Dialog</h1>
 <button mat-button (click)="openDialog()">Open dialog</button>
 <br><br><br>
 <h1>Table</h1>
@@ -106,8 +104,10 @@
 </p>
 <br><h1>Pipe</h1>
 <br><p>{{ text | substring: 15 }}</p>
+
 <br><h1>Formulario</h1>
 <app-formulario></app-formulario>
+<br><app-audit-individual [objeto]="objeto"></app-audit-individual>
 
 
 

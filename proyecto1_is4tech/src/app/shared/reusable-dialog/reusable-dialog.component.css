@@ -1,0 +1,47 @@
+
+svg{
+    float: left;
+}
+
+h1{
+    float: 5em;
+    color: black;
+}
+
+strong{
+    color: black
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+}
+
+.boton-centrado {
+    display: flex;
+    justify-content: center;
+
+  }
+  
+  .boton-personalizado {
+    background-color: black;
+    color: white;
+    border-radius: 25px; 
+    padding: 10px 20px; 
+    font-weight: bold; 
+    border: none; 
+    cursor: pointer; 
+    width: 18em;
+    height: 3em;
+  }
+  
+  .boton-personalizado:hover {
+    background-color: #333;
+  }
+
+  .icon{
+    margin-right: 1em;
+  }
+  
+  
+

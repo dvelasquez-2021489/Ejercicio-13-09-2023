@@ -8,6 +8,7 @@ import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/materia
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
+import { ReusableDialogComponent } from 'src/app/shared/reusable-dialog/reusable-dialog.component';
 
 
 const today = new Date();
@@ -47,6 +48,12 @@ export class DogsComponent implements OnInit, OnDestroy {
   moment = _moment;
   public listdePerros: dogs = { message: '', status: '' };
   title: string = '';
+  objeto = {
+    userCreated: 'mvelasquez@gmail.com',
+    dateCreated: '01/09/2023 19:58:45',  
+    userUpdated: 'avasquez@is4tech.com',
+    dateUpdated: '20/09/2023 11:08:47'
+  }
 
   constructor(private DogsServiceService: DogsServiceService, public dialog: MatDialog) {
     this.form = new FormGroup({
@@ -116,4 +123,5 @@ export class DogsComponent implements OnInit, OnDestroy {
       console.log(`Dialog result: ${result}`);
     });
   }
+
 }

@@ -11,6 +11,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('../app/admin/admin.module').then(x => x.AdminModule) //lazy loading
   },
+  {
+    path: 'operation',
+    loadChildren: () =>
+      import('../app/operation/operation.module').then(x => x.OperationModule) //lazy loading
+  },
   { path: 'parametros', component: ParamsComponent }
 ];
 

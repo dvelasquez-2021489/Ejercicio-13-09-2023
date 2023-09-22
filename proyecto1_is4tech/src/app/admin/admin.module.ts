@@ -29,9 +29,11 @@ import { HighlightDirective } from './components/highlight.directive';
 import { CopyToClipboardDirective } from './components/copy-to-clipboard.directive';
 import { SubstringPipe } from './components/substring.pipe';
 import { FormularioComponent } from './components/formulario/formulario.component';
+import { ReusableDialogComponent } from '../shared/reusable-dialog/reusable-dialog.component';
+import { AdminComponent } from './admin.component';
 
 @NgModule({
-  declarations: [DogsComponent, ParamsComponent, FormsComponent, TableComponent, StepperComponent, FechaComponent, CommaSeparatedDirective, HighlightDirective, CopyToClipboardDirective, SubstringPipe, FormularioComponent],
+  declarations: [DogsComponent, ParamsComponent, FormsComponent, TableComponent, StepperComponent, FechaComponent, CommaSeparatedDirective, HighlightDirective, CopyToClipboardDirective, SubstringPipe, FormularioComponent, ReusableDialogComponent, AdminComponent],
   imports: [CommonModule, AdminRoutingModule, SharedModule, FormsModule, MatDatepickerModule,
     MatToolbarModule,
     MatButtonModule,
@@ -49,3 +51,5 @@ import { FormularioComponent } from './components/formulario/formulario.componen
    ]
 })
 export class AdminModule {}
+
+
